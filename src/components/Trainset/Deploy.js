@@ -2,7 +2,6 @@ import React from 'react'
 import { Table, Well, Panel } from 'react-bootstrap'
 
 const deploy = props => {
-    console.log("deploy", props.deploy)
     return (
         <Panel header="deploy">
             <div>

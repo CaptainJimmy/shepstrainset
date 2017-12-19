@@ -2,7 +2,6 @@ import React from 'react'
 import {Table, Well, Panel} from 'react-bootstrap'
 
 const config = props => {
-    console.log("config",props.config)
 return (
         <Panel header="Config">
     <div>

@@ -33,7 +33,7 @@ class App extends Component {
   }
   getConfig = () => {
     API.getConfig().then(res => {
-      this.setState({ config: res.data }, () => { console.log("config",this.state.config) })
+      this.setState({ config: res.data })
 
     }).catch(error => {
       console.log(error)
@@ -42,7 +42,7 @@ class App extends Component {
 
   getSchedule = () => {
     API.getSchedule().then(res => {
-      this.setState({ schedule: res.data }, () => { console.log("schedule",this.state.schedule) })
+      this.setState({ schedule: res.data })
 
     }).catch(error => {
       console.log(error)
@@ -51,7 +51,7 @@ class App extends Component {
   }
   getProbe = () => {
     API.getProbe().then(res => {
-      this.setState({ probe: res.data }, () => { console.log("probe",this.state.probe) })
+      this.setState({ probe: res.data })
 
     }).catch(error => {
       console.log(error)
@@ -60,7 +60,7 @@ class App extends Component {
   }
   getDeploy = () => {
     API.getDeploy().then(res => {
-      this.setState({ deploy: res.data }, () => { console.log("deploy",this.state.deploy) })
+      this.setState({ deploy: res.data })
 
     }).catch(error => {
       console.log(error)

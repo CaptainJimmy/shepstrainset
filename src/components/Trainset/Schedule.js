@@ -2,7 +2,6 @@ import React from 'react'
 import { Table, Well, Panel } from 'react-bootstrap'
 
 const schedule = props => {
-    console.log("Schedule", props.schedule)
     return (
         <Panel header="Schedule">
             <div>

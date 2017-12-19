@@ -2,7 +2,6 @@ import React from 'react'
 import { Table, Well, Panel } from 'react-bootstrap'
 
 const probe = props => {
-    console.log("probe", props.probe)
     return (
         <Panel header="probe">
             <div>
@@ -10,7 +9,6 @@ const probe = props => {
                 </div>
 
                 {props.probe ? props.probe.map((item, index) => {
-                    console.log(item)
                     return (
 
                         <Well key={item.id}>
