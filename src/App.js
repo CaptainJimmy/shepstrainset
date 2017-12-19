@@ -10,6 +10,10 @@ import {
 import API from './utils/API'
 import './App.css';
 import Config from './components/Trainset/Config'
+import Schedule from './components/Trainset/Schedule'
+import Probe from './components/Trainset/Probe'
+import Deploy from './components/Trainset/Deploy'
+
 
 
 class App extends Component {
@@ -22,36 +26,54 @@ class App extends Component {
   }
   componentDidMount() {
     this.getConfig();
+    this.getSchedule();
+    this.getProbe();
+    this.getDeploy();
+
   }
   getConfig = () => {
-    API.getConfig().then(res => {    
-      this.setState({config: res.data}, ()=>{ console.log(this.state.config)})
-    
-    }).catch( error => {
+    API.getConfig().then(res => {
+      this.setState({ config: res.data }, () => { console.log("config",this.state.config) })
+
+    }).catch(error => {
       console.log(error)
     })
   }
 
   getSchedule = () => {
+    API.getSchedule().then(res => {
+      this.setState({ schedule: res.data }, () => { console.log("schedule",this.state.schedule) })
 
+    }).catch(error => {
+      console.log(error)
+    })
 
   }
   getProbe = () => {
+    API.getProbe().then(res => {
+      this.setState({ probe: res.data }, () => { console.log("probe",this.state.probe) })
 
+    }).catch(error => {
+      console.log(error)
+    })
 
   }
   getDeploy = () => {
+    API.getDeploy().then(res => {
+      this.setState({ deploy: res.data }, () => { console.log("deploy",this.state.deploy) })
 
+    }).catch(error => {
+      console.log(error)
+    })
 
   }
-getInitialState() {
-  return this.state.key;
-}
+  getInitialState() {
+    return this.state.key;
+  }
 
-handleSelect(keytab) {
-  console.log(`selected ${keytab}`);
-  this.setState({key: keytab});
-}
+  handleSelect(keytab) {
+    this.setState({ key: keytab });
+  }
   render() {
     return (
       <div>
@@ -63,16 +85,19 @@ handleSelect(keytab) {
             </Jumbotron>
           </Grid>
           <Grid bsClass="container">
-            <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+            <Tabs defaultActiveKey={1} id="tabs">
               <Tab eventKey={1} title="Config">
-                <Config config={this.state.config.data} messasge={this.state.config.message}/>
+                <Config config={this.state.config.data} />
               </Tab>
-              <Tab eventKey={2} title="Tab 2">
-                <Panel header="THe turd burglers">
-                  THings
-                </Panel>
+              <Tab eventKey={2} title="Schedule">
+                <Schedule schedule={this.state.schedule.data} />
               </Tab>
-              <Tab eventKey={3} title="Tab 3" disabled>Tab 3 content</Tab>
+              <Tab eventKey={3} title="Probe">
+                <Probe probe={this.state.probe.data} />       
+              </Tab>
+              <Tab eventKey={4} title="Deploy">
+                <Deploy deploy={this.state.deploy.data} />
+              </Tab>
             </Tabs>
           </Grid>
         </Grid>

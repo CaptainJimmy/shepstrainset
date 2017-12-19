@@ -2,11 +2,11 @@ import React from 'react'
 import {Table, Well, Panel} from 'react-bootstrap'
 
 const config = props => {
-    console.log("socks",props.config)
+    console.log("config",props.config)
 return (
         <Panel header="Config">
     <div>
-<div> <h2> Config Status:  { props.message ?  props.message : null }  </h2> 
+<div> <h2> Config Status:   </h2> 
     </div>
 
         {props.config? props.config.map( (item,index)=>{
